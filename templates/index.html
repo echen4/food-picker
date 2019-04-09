@@ -3,7 +3,9 @@
 {# replaces default content block #}
 {% block content %}
     <div id="content">
-        <h1>Food Picker</h1>
+        <h1>Food Mood</h1>
+        <h2>Always in the mood for food</h2>
+        <h3>Ever have that issue where your friends want to eat out, but you just can't decide where to eat or even <i>what</i> to eat? Now <b>Food Mood</b> can help you choose!</h3>
         <form method="get" action = "{{ url_for('pickLocation') }}">
             <button class="go" type="submit">Let's Go!</button>
         </form>

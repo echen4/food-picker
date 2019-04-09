@@ -3,6 +3,11 @@
 {# replaces default content block #}
 {% block content %}
 <div id="content">
+    <div class="intro">
+        <p>First, choose which area you want to eat</p>
+        <p>Next, add as many cuisines that you are craving! Don't worry about having to choose between them -- we'll help you decide!</p>
+        <p>Voila! You'll be recommended a restaurant!</p>
+    </div>
     <form method="post" action="{{ url_for('chooseRestaurant') }}">
         <div class="location">
             <label for="location"><b>Where do you want to eat?</b></label>

@@ -17,7 +17,8 @@ def main_page():
         return render_template('index.html', title="Food Picker")
         # return redirect(url_for('findMovie', search=searchInput))
         
-        
+
+# pick location + add cuisine choices        
 @app.route('/pickLocation', methods=['POST', 'GET'])
 def pickLocation():
     if request.method == "GET":
@@ -28,32 +29,31 @@ def pickLocation():
         # location = request.form['location']
         # cuisine = request.form['cuisine']
         
-        
+
+# show restaurant result        
 @app.route('/result', methods=['POST', 'GET'])
 def chooseRestaurant():
     if request.method == "GET":
         return render_template('location.html', title="Food Picker")
     else:
+        # obtain form inputs
         foodList = request.form.getlist("cuisine")
         foodList = [x for x in foodList if len(x.strip()) > 0]
         loc = request.form["location"]
-        print(foodList, loc)
         
         food = random.choice(foodList) # choose random cuisine
         
         success, result = scrape.searchCuisine(food, loc)
         
-        if success:
+        if success: # if successfully accessed yelp
             if len(result["area"]) > 0:
                 loc = result["area"]
             return render_template('result.html', location=loc, cuisine=food, 
                                     restaurant=result["name"], phone=result["phone"],
                                     address=result["address"], url=result["url"])
-        else:
+        else: # if unable to get results
             flash(result)
             return redirect(url_for("main_page"))
-        # location = request.form['location']
-        # cuisine = request.form['cuisine']
         
 
 '''
