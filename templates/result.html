@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{# replaces default content block #}
+{% block content %}
+
+    <div id="content">
+        <div class="cuisine">Cuisine: {{ cuisine }}</div>
+        <div class="restaurant">Restaurant: <a href="{{ url }}">{{ restaurant }}</a></div>
+        <div class="address">Address: {{ address }}</div>
+        <div class="location">Location: {{ location }}</div>
+        {% if phone %}
+            <div class="phone">Telephone: {{ phone }}</div>
+        {% endif %}
+        
+        <form method="get" action="{{ url_for('main_page') }}">
+            <button class="go" type="submit">Try Again!</button>
+        </form>
+    </div>
+
+{% endblock %}

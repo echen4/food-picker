@@ -1,0 +1,27 @@
+body {
+    font-family: Montserrat;
+}
+
+#content {
+    margin: 0 auto;
+    margin-top: 15%;
+    text-align: center;
+}
+
+button.go {
+    margin: 0 auto;
+    background: #fabbbb;
+    border: #fabbbb 3px double;
+    padding: 20px;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+label {
+    display:inline-block;
+}
+
+.enter {
+    padding: 40px;
+}

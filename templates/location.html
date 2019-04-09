@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+
+{# replaces default content block #}
+{% block content %}
+<div id="content">
+    <form method="post" action="{{ url_for('chooseRestaurant') }}">
+        <div class="location">
+            <label for="location"><b>Where do you want to eat?</b></label>
+            <input type="text" placeholder="Ex: Boston" name="location" required>
+        </div>
+    
+        <div id="cuisinecontainer">
+            <div class="cuisine">
+                <label for="cuisine"><b>What are you feeling? </b></label>
+                <input type="text" placeholder="Ex: Pizza" name="cuisine" required>
+                <button type="button" class="another" onclick="addAnother()">Add Another</button>
+            </div>
+        </div>
+    
+        <div class="enter"><button type="submit">Enter</button></div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function deleteEntry(self) {
+        console.log(self);
+        $(self).closest('.cuisine').remove();
+    }
+    
+    function addAnother() {
+        console.log(this);
+        $div = "<div class='cuisine'><label for='cuisine'><b>What are you feeling? </b></label><input type='text' placeholder='Ex: Pizza' name='cuisine'><button type='button' class='another' onclick='addAnother()'>Add Another</button><button type='button' class='delete' onclick='deleteEntry(this)'>Delete</button></div>"
+        $("#cuisinecontainer").append($div);  
+    }
+
+</script>
+{% endblock %}

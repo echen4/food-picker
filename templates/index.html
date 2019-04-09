@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{# replaces default content block #}
+{% block content %}
+    <div id="content">
+        <h1>Food Picker</h1>
+        <form method="get" action = "{{ url_for('pickLocation') }}">
+            <button class="go" type="submit">Let's Go!</button>
+        </form>
+    </div>
+{% endblock %}
