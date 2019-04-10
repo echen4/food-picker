@@ -1,6 +1,7 @@
 body {
     font-family: Montserrat;
-    background: url('https://cdn.dribbble.com/users/24444/screenshots/3351201/foodandbev.png') repeat;
+    background-image: url('seamless-food-light.png');
+    background-repeat: repeat;
 }
 
 #content {
@@ -25,4 +26,10 @@ label {
 
 .enter {
     padding: 40px;
+}
+
+.credits {
+    position: absolute;
+    bottom: 10px;
+    font-size: 10px;
 }
