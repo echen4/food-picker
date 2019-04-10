@@ -4,6 +4,11 @@ body {
     background-repeat: repeat;
 }
 
+h1 {
+    font-size: 88px;
+    text-transform: uppercase;
+}
+
 #content {
     margin: 0 auto;
     margin-top: 15%;
