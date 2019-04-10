@@ -20,8 +20,7 @@ def searchCuisine(food, location):
         if len(lemons) < 1:
             return (False, "There was an issue with your search. Please try again or try a different cuisine/location")
         # Choose the restaurant
-        # lemon = random.choice(lemons)
-        lemon = lemons[1]
+        lemon = random.choice(lemons)
         restaurant = lemon.find_all('a', class_='lemon--a__373c0__IEZFH')[0]
         
         # get restaurant name
