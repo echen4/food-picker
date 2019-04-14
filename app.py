@@ -14,7 +14,7 @@ app.secret_key = 'S3CR3T'
 @app.route('/', methods=['POST', 'GET'])
 def main_page():
     if request.method == "GET" or request.method == "POST":
-        return render_template('index.html', title="Food Picker")
+        return render_template('index.html', title="Food Mood: Welcome")
         # return redirect(url_for('findMovie', search=searchInput))
         
 
@@ -22,19 +22,17 @@ def main_page():
 @app.route('/pickLocation', methods=['POST', 'GET'])
 def pickLocation():
     if request.method == "GET":
-        return render_template('location.html', title="Food Picker")
+        return render_template('location.html', title="Food Mood: Input")
     else:
         print(request.form)
-        return render_template('location.html', title="Food Picker")
-        # location = request.form['location']
-        # cuisine = request.form['cuisine']
+        return render_template('location.html', title="Food Mood: Input")
         
 
 # show restaurant result        
 @app.route('/result', methods=['POST', 'GET'])
 def chooseRestaurant():
     if request.method == "GET":
-        return render_template('location.html', title="Food Picker")
+        return render_template('location.html', title="Food Mood: Result")
     else:
         # obtain form inputs
         foodList = request.form.getlist("cuisine")
@@ -50,7 +48,8 @@ def chooseRestaurant():
                 loc = result["area"]
             return render_template('result.html', location=loc, cuisine=food, 
                                     restaurant=result["name"], phone=result["phone"],
-                                    address=result["address"], url=result["url"])
+                                    address=result["address"], url=result["url"],
+                                    title="Food Mood: Result")
         else: # if unable to get results
             flash(result)
             return redirect(url_for("main_page"))
