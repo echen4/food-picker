@@ -15,7 +15,6 @@ app.secret_key = 'S3CR3T'
 def main_page():
     if request.method == "GET" or request.method == "POST":
         return render_template('index.html', title="Food Mood: Welcome")
-        # return redirect(url_for('findMovie', search=searchInput))
         
 
 # pick location + add cuisine choices        
